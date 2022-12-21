@@ -1,0 +1,41 @@
+1.vendita prodotti cosmetici,
+
+nome prodotto,tipo prodotto,codice prodotto,codice ordine
+dyson airwrap,cura dei capelli, 1,77869,
+dyson supersonic,asciugatura,2,77870,
+dyson corrale,styling capelli,3,88740,
+
+
+2.clienti con carta fedeltà e non,codice ordine,
+
+nome,cognome,codice fiscale,mail,carta,codice ordine
+maria,gatti,GTTMRA80A41E472N,gattim@gmail.com,si,77869,
+luca,rossi,RSSLCU80A01E472P,rossil@gmail.com,no,77870,
+marta,neri,NREMRT80A41E472E,mneri@gmail.com,no,88740,
+
+1.Attributi,
+nome prodotto,tipo prodotto,codice prodotto,codice ordine
+
+2.Attributi,
+nome,cognome,cf,mail,carta fedeltà,codice ordine
+
+
+1.attributi chiave primari,
+codice prodotto,codice ordine
+
+2.attributi chiave primari,
+mail,cf,codice ordine
+
+
+
+vendite,
+codice prodotto,anno,codice ordine,
+1,2020,77869,
+2,2021,77870,
+3,2022,88740,
+
+chiavi esterne,
+codice ordine,
+
+
+
