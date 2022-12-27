@@ -1,0 +1,21 @@
+{
+    "<!--Lista di libri in catalogo a cui è stato cambiato il titolo tra la bozza e la prima edizione--> " 
+        { "Authors" : [
+        { "Name": "Jane Austen", "Book title": "Pride and Prejudice" , "Page count": 432 },
+        { "Name": "Emily Bronte", "Book title" : "Wuthering Heights" ,"Page count": 428 },
+        { "Name": " J.K. Rowling", "Book title" : [
+                "Harry Potter and the Philosopher's stone", 
+                "Harry Potter and the Sorcerer's stone"] , "Page count": 304}, 
+        { "Name": "George Orwell", "Book title": "1984" ,"Page count": 333},
+        { "Name": "Nathaniel Hawthorne", "Book title": "The Scarlet letter",
+        "Page count": 432 },
+        { "Name": " Oscar Wilde", "Book title" : [ "Ernest",
+         "The importance of being Ernest"], 
+                "Page count": 208},
+        { "Name": "Fedor Dostoevskij", "Book title": "Delitto e castigo", "Page count": 608}, 
+        { "Name": "Harper Lee", "Book title": "Il buio oltre la siepe", "Page count": 304 },   
+        { "Name": " Steven King", "Book title" : [ "Shining", 
+        "The Shining"] , 
+        "Page count": 430} ]
+        }
+}

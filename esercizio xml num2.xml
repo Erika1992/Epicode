@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Playlist festa 30 anni>
+    <genere> pop </genere>
+    
+    <artista> Sofia Carlson 
+        <canzone>I didn't know </canzone>
+        <durata> 3:50 </durata>
+    </artista>
+
+    <artista> Raye and 070 Shake 
+        <canzone>Escapism </canzone>
+        <durata> 4:12 </durata>
+    </artista>
+
+    <artista> Selena Gomez
+        <canzone>Calm down </canzone>
+        <durata> 3:15 </durata>
+    </artista>
+
+    <artista> Slimane 
+        <canzone>Bye Bye </canzone>
+        <durata> 3:40 </durata>      
+    </artista>
+
+    <artista> Pinguini tattici nucleari 
+        <canzone>Ricordi </canzone>
+        <durata> 3:26 </durata>      
+    </artista>
+
+    <artista> Rkomi 
+        <canzone> null </canzone>
+        <durata> 3:58 </durata>      
+    </artista>
+
+    <artista> Ariana Grande 
+        <canzone>Positions </canzone>
+        <durata> 4:10 </durata>      
+    </artista>
+
+    <artista> Harry Styles 
+        <canzone>Late night talking </canzone>
+        <durata> 3:42 </durata>      
+    </artista>
+
+    <artista> Justin Bieber 
+        <canzone>Intentions </canzone>
+        <durata> 3:43 </durata>      
+    </artista>
+
+    <artista> Pinguini tattici nucleari 
+        <canzone>Verdura </canzone>
+        <durata> 3:48 </durata>      
+    </artista>
+
+    <artista> Fedez 
+        <canzone>Morire morire </canzone>
+        <durata> null </durata>      
+    </artista>
+
+</Playlist festa 30 anni>

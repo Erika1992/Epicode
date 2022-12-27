@@ -1,0 +1,11 @@
+Anno, Classe, Nome, Cognome, Trasferimento di classe durante corso, Data, Voto, Lode
+2001, F, Elisa, Bianchi, no,, 78, no
+2001, D, Maria, Neri, no,, 99, no
+2002, C, Paolo, Rossi, no,, 110, si
+2002, ""A,C"", Marco, Verdi, si, "14/12/1999", 110, no
+2003, B, Luca, Gialli, no,, 88, no
+2003, D, Elena, Viola, no,, 100, no
+2004, G, Cristian, Celeste, no,, 110, si
+2004, ""F,A"", Laura, Indaco, si, "22/11/2004", 110, si
+,, ""G,A"", Mattia, Neri, si, "01/10/2005", 110, si
+
