@@ -1,0 +1,52 @@
+Tabella Store: mostra dettagli dello store e numero identificativo
+
+store_id (int, primary key)
+indirizzo
+telefono 
+
+Tabella Dipendente: mostra dettagli dipendenti 
+
+dipendente_id (int, primary key)
+nome 
+codice_fiscale (primary key)
+titolo_di_studio 
+numero 
+
+Tabella Impiego: serve x mostrare gli intervalli di tempo in cui i dipendenti hanno lavorato e carica
+
+impiego_id (int, primary key)
+dipendente_id (int, foreign key)
+store_id (int, foreign key)
+inizio_impiego (date)
+fine_impiego (date)
+carica 
+
+Tabella Gioco: mostra codice identificativo, e dettagli di acquisto e storage nello store 
+
+gioco_id (int, primary key)
+titolo 
+sviluppatore 
+data_distribuzione 
+prezzo (decimal)
+genere 
+
+Tabella Acquisto: mostra le attività di acquisto dei videogiochi da store diversi della stessa catena identificabili tramite id 
+
+acquisto_id (int, primary key)
+data_acquisto (date)
+store_id (int, foreign key)
+totale (decimal)
+
+Tabella Inventario: mostra collocazione giochi nello store,numero disponibile e in quale settore sono 
+
+inventario_id (int, primary key)
+store_id (int, foreign key)
+gioco_id (int, foreign key)
+numero_copie 
+settore_id (int, foreign key)
+
+Tabella Settore: cioe le varie aree all'interno dello store dove sono collocati i giochi
+
+settore_id (int, primary key)
+codice_settore 
+store_id (int, foreign key)
