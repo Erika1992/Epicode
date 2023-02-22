@@ -1,0 +1,47 @@
++------------------+             +------------------+             +------------------+
+|      Store       |             |     Dipendente    |             |      Impiego      |
++------------------+             +------------------+             +------------------+
+| store_id (PK)    |             | dipendente_id (PK)|             | impiego_id (PK)   |
+|                  |             | nome             |             | dipendente_id (FK)|
+| indirizzo        |             | codice_fiscale   |             | store_id (FK)     |
+|                  |             | titolo_di_studio |             | inizio_impiego    |
+|                  |             | numero           |             | fine_impiego      |
+| telefono         |             +------------------+             | carica            |
++------------------+                                             +------------------+
+
++------------------+             +------------------+            
+|      Gioco       |             |     Acquisto     |             
++------------------+             +------------------+             
+| gioco_id (PK)    |             | acquisto_id (PK) |             
+| titolo           |             | data_acquisto    |             
+| sviluppatore     |             | store_id (FK)    |            
+| data_distribuzione|             | totale           |           
+| prezzo           |                                          
+| genere           |                                             
++------------------+
+
++------------------+
+|     Inventario   |
++------------------+
+| inventario_id (PK)|
+| store_id (FK)     |
+| gioco_id (FK)     |
+| numero_copie      |
+| settore_id (FK)   |
++------------------+
+
++------------------+
+|     Settore      |
++------------------+
+| settore_id (PK)  |
+| codice_settore   |
+| store_id (FK)    |
++------------------+
+
+
+Nello schema ER, ogni tabella è rappresentata come un rettangolo contenente il nome della tabella. I campi di ogni tabella sono rappresentati come attributi del rettangolo, con il tipo di dato indicato tra parentesi.
+
+Le linee tra i rettangoli rappresentano le relazioni tra le tabelle. In questo caso, ci sono molte relazioni tra le tabelle, rappresentate da frecce che collegano i campi delle tabelle coinvolte.
+
+Per esempio, la relazione tra la tabella Dipendente e la tabella Impiego è rappresentata da una freccia che parte dal campo dipendente_id della tabella Impiego e arriva al campo dipendente_id della tabella Dipendente. Questo indica che ogni impiego è associato a un dipendente.
+
