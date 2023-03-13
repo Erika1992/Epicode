@@ -1,0 +1,139 @@
+create database ECOMMERCE
+
+USE  ECOMMERCE
+
+USE  ECOMMERCE
+
+create table Utente ( IdUtente INT auto_increment PRIMARY KEY, Nome VARCHAR(50) not null, Cognome VARCHAR(50) not null, Email VARCHAR(100) not null, Password VARCHAR(100) not null )
+
+USE  ECOMMERCE
+
+create table Prodotto ( IdProdotto INT PRIMARY KEY, Nome VARCHAR(100) not null, Descrizione TEXT, Marca VARCHAR(50) not null, Prezzo DECIMAL(10, 2) not null )
+
+USE  ECOMMERCE
+
+create table Categoria ( IdCategoria INT PRIMARY KEY, Nome VARCHAR(50) not null )
+
+USE  ECOMMERCE
+
+create table Carrello ( IdCarrello INT PRIMARY KEY, IdUtente INT, DataCreazione DATE, FOREIGN KEY (IdUtente) REFERENCES Utente(IdUtente) )
+
+USE  ECOMMERCE
+
+create table DettaglioCarrello ( IdDettaglioCarrello INT PRIMARY KEY, IdCarrello INT, IdProdotto INT, Quantita INT, FOREIGN KEY (IdCarrello) REFERENCES Carrello(IdCarrello), FOREIGN KEY (IdProdotto) REFERENCES Prodotto(IdProdotto) )
+
+USE  ECOMMERCE
+
+insert into utente values (1, 'Mario', 'Rossi', 'mario.rossi@example.com', 'password')
+
+USE  ECOMMERCE
+
+insert into utente (Nome,Cognome,Mail,Password) values ('Giulio', 'Verdi', 'giulio.verdi@example.com', 'password')
+
+USE  ECOMMERCE
+
+insert into utente (Nome,Cognome,Email,Password) values ('Giulio', 'Verdi', 'giulio.verdi@example.com', 'password')
+
+select * from utente LIMIT 0, 1000
+
+insert into utente (Nome,Cognome,Mail,Password) values ('Luigi', 'Verdi', 'luigi.verdi@example.com', 'password')
+
+insert into utente (Nome,Cognome,Email,Password) values ('Luigi', 'Verdi', 'luigi.verdi@example.com', 'password')
+
+insert into prodotto values ('Crema viso idratante', 'Crema viso per pelli secche e sensibili', 'Nivea', 15.99)
+
+insert into prodotto (Nome,Descrizione,Marca,Prezzo) values ('Crema viso idratante', 'Crema viso per pelli secche e sensibili', 'Nivea', 15.99)
+
+insert into prodotto (IdProdotto,Nome,Descrizione,Marca,Prezzo) values (1,'Crema viso idratante', 'Crema viso per pelli secche e sensibili', 'Nivea', 15.99)
+
+select * from prodotto LIMIT 0, 1000
+
+INSERT INTO Prodotto VALUES (2, 'Shampoo anticaduta', 'Shampoo a base di estratti naturali', 'Garnier', 8.99)
+
+INSERT INTO Prodotto VALUES (3, 'Rossetto', 'Rossetto a lunga durata', 'Maybelline', 9.99)
+
+INSERT INTO Categoria VALUES (1, 'Cura del viso')
+
+INSERT INTO Categoria VALUES (2, 'Cura dei capelli')
+
+INSERT INTO Categoria VALUES (3, 'Make-up')
+
+INSERT INTO Carrello VALUES (1, 1, '2023-03-10')
+
+INSERT INTO Carrello VALUES (2, 2, '2023-03-10')
+
+INSERT INTO DettaglioCarrello VALUES (1, 1, 1, 2)
+
+INSERT INTO DettaglioCarrello VALUES (2, 1, 2, 1)
+
+INSERT INTO DettaglioCarrello VALUES (3, 2, 3, 3)
+
+show ecommerce
+
+select * from carrello  join dettagliocarrello  on carrello.IdCarrello = dettagliocarrello.IdCarrello LIMIT 0, 1000
+
+select carrello.IdCarrello, carrello.IdUtente, dettagliocarrello.Quantita  from carrello  join dettagliocarrello  on carrello.IdCarrello = dettagliocarrello.IdCarrello LIMIT 0, 1000
+
+select carrello.IdCarrello as idPresenteNellaCartellaCarrello, carrello.IdUtente, dettagliocarrello.Quantita  from carrello  join dettagliocarrello  on carrello.IdCarrello = dettagliocarrello.IdCarrello LIMIT 0, 1000
+
+select carrello.IdCarrello as idPresenteNellaCartellaCarrello, carrello.IdUtente, COUNT(dettagliocarrello.Quantita) AS totaleQuantita  from carrello  join dettagliocarrello  on carrello.IdCarrello = dettagliocarrello.IdCarrello LIMIT 0, 1000
+
+select carrello.IdCarrello as idPresenteNellaCartellaCarrello, carrello.IdUtente, dettagliocarrello.Quantita  from carrello  join dettagliocarrello  on carrello.IdCarrello = dettagliocarrello.IdCarrello LIMIT 0, 1000
+
+select c.IdCarrello as idPresenteNellaCartellaCarrello, c.IdUtente, dettagliocarrello.Quantita  from carrello as c join dettagliocarrello  on c.IdCarrello = dettagliocarrello.IdCarrello LIMIT 0, 1000
+
+select c.IdCarrello as idPresenteNellaCartellaCarrello, c.IdUtente, dettagliocarrello.Quantita  from carrello as c join dettagliocarrello as d on c.IdCarrello = d.IdCarrello LIMIT 0, 1000
+
+select c.IdCarrello as idPresenteNellaCartellaCarrello, c.IdUtente, d.Quantita  from carrello as c join dettagliocarrello as d on c.IdCarrello = d.IdCarrello LIMIT 0, 1000
+
+select * as idPresenteNellaCartellaCarrello, c.IdUtente, d.Quantita  from carrello as c join dettagliocarrello as d on c.IdCarrello = d.IdCarrello
+
+select * as idPresenteNellaCartellaCarrello, carrello.IdUtente, dettagliocarrello.Quantita  from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello
+
+select *, carrello.IdUtente, dettagliocarrello.Quantita  from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello LIMIT 0, 1000
+
+select carrello.idUtente, dettagliocarrello.Quantita, prodotto.Nome from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello LIMIT 0, 1000
+
+select carrello.idUtente, dettagliocarrello.Quantita, prodotto.Nome from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello join prodotto on dettaglio.IdProdotto = prodotto.IdProdotto LIMIT 0, 1000
+
+select carrello.idUtente, dettagliocarrello.Quantita, prodotto.Nome from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello join prodotto on dettagliocarrello.IdProdotto = prodotto.IdProdotto LIMIT 0, 1000
+
+select carrello.idUtente, prodotto.Nome dettagliocarrello.Quantita  from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello join prodotto on dettagliocarrello.IdProdotto = prodotto.IdProdotto
+
+select carrello.idUtente, prodotto.Nome, dettagliocarrello.Quantita  from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello join prodotto on dettagliocarrello.IdProdotto = prodotto.IdProdotto LIMIT 0, 1000
+
+select dettagliocarrello.Quantita, carrello.idUtente, prodotto.Nome   from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello join prodotto on dettagliocarrello.IdProdotto = prodotto.IdProdotto LIMIT 0, 1000
+
+select dettagliocarrello.Quantita, carrello.idUtente, prodotto.Nome   from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello join prodotto on dettagliocarrello.IdProdotto = prodotto.IdProdotto where idUtente = 1 LIMIT 0, 1000
+
+select dettagliocarrello.Quantita, carrello.idUtente, prodotto.Nome   from carrello join dettagliocarrello on carrello.IdCarrello = dettagliocarrello.IdCarrello join prodotto on dettagliocarrello.IdProdotto = prodotto.IdProdotto where idUtente = 2 LIMIT 0, 1000
+
+select prodotto.Marca, dettagliocarrello.Quantita, carrello.DataCreazione  from prodotto join dettagliocarrello on prodotto.IdProdotto = dettagliocarrello.IdProdotto  join carrello  on dettagliocarrello.IdCarrello = carrello.IdCarrello LIMIT 0, 1000
+
+select prodotto.Marca, dettagliocarrello.Quantita, carrello.DataCreazione  from prodotto join dettagliocarrello on prodotto.IdProdotto = dettagliocarrello.IdProdotto  join carrello  on dettagliocarrello.IdCarrello = carrello.IdCarrello where prodotto.Marca = 'Nivea' LIMIT 0, 1000
+
+select prodotto.Marca, dettagliocarrello.Quantita, carrello.DataCreazione  from prodotto join dettagliocarrello on prodotto.IdProdotto = dettagliocarrello.IdProdotto  join carrello  on dettagliocarrello.IdCarrello = carrello.IdCarrello where prodotto.Marca like '_i%' LIMIT 0, 1000
+
+select prodotto.Marca, dettagliocarrello.Quantita, carrello.DataCreazione  from prodotto join dettagliocarrello on prodotto.IdProdotto = dettagliocarrello.IdProdotto  join carrello  on dettagliocarrello.IdCarrello = carrello.IdCarrello where prodotto.Marca like '%a' LIMIT 0, 1000
+
+select prodotto.Nome, utente.IdUtente, prodotto.Marca, carrello.DataCreazione from prodotto join dettagliocarrello  on prodotto.idProdotto = utente.idProdotto  join carrello on dettagliocarrello.idCarrello = carrello.idCarrello join utente on carrello.idUtente = utente.idUtente LIMIT 0, 1000
+
+select prodotto.Nome, utente.IdUtente, prodotto.Marca, carrello.DataCreazione from prodotto join dettagliocarrello  on prodotto.idProdotto = dettagliocarrello.idProdotto  join carrello on dettagliocarrello.idCarrello = carrello.idCarrello join utente on carrello.idUtente = utente.idUtente LIMIT 0, 1000
+
+select prodotto.Nome, utente.Nome, prodotto.Marca, carrello.DataCreazione from prodotto join dettagliocarrello  on prodotto.idProdotto = dettagliocarrello.idProdotto  join carrello on dettagliocarrello.idCarrello = carrello.idCarrello join utente on carrello.idUtente = utente.idUtente LIMIT 0, 1000
+
+select prodotto.Nome, utente.Nome as Compratore, prodotto.Marca, carrello.DataCreazione from prodotto join dettagliocarrello  on prodotto.idProdotto = dettagliocarrello.idProdotto  join carrello on dettagliocarrello.idCarrello = carrello.idCarrello join utente on carrello.idUtente = utente.idUtente LIMIT 0, 1000
+
+CREATE TABLE intervallo_temporale (   id INT PRIMARY KEY,   data DATE,   anno INT,   trimestre INT,   mese INT,   settimana INT,   giorno INT )
+
+INSERT INTO intervallo_temporale (id, data, anno, trimestre, mese, settimana, giorno) VALUES (1, '2023-03-10', 2023, 1, 3, 10, 10)
+
+INSERT INTO intervallo_temporale (id, data, anno, trimestre, mese, settimana, giorno) VALUES (2, '2023-01-01', 2023, 1, 1, 1, 1)
+
+INSERT INTO intervallo_temporale (id, data, anno, trimestre, mese, settimana, giorno) VALUES (3, '2023-04-15', 2023, 2, 4, 15, 15)
+
+INSERT INTO intervallo_temporale (id, data, anno, trimestre, mese, settimana, giorno) VALUES (4, '2023-07-01', 2023, 3, 7, 26, 1)
+
+SELECT id, DATE_FORMAT(data, '%d/%m/%Y') AS data_formattata, anno, trimestre, mese, settimana, giorno FROM intervallo_temporale LIMIT 0, 1000
+
+SELECT id, data, anno, trimestre, mese, settimana, giorno FROM intervallo_temporale ORDER BY data DESC LIMIT 0, 1000
