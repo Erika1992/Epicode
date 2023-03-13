@@ -1,0 +1,119 @@
+interrogazioni mysql Ecommerce
+query 1
+-- mando a schermo idutente idprodotto e quantita'--
+select * from carrello 
+join dettagliocarrello 
+on carrello.IdCarrello = dettagliocarrello.IdCarrello;
+
+
+quando fai join scrivi:
+
+select e scrivi cosa vuoi cercare con cartella1.cosavuoicercare , cartella2.cosavuoicercare from cartella1 (che hai usato x prima)
+poi scrivi join cartella2 ON (se e JOIN) e scrivi dove ci sono valori uguali cartella1.cosavuoicercare = cartella2.cosavuoicercare nel senso dove sono uguali;
+
+
+
+query 2
+
+-- mando a schermo idutente, idprodotto e quantita' rinominando le tables--
+
+select c.IdCarrello as idPresenteNellaCartellaCarrello, c.IdUtente, d.Quantita  from carrello as c
+join dettagliocarrello as d
+on c.IdCarrello = d.IdCarrello;
+
+query3
+
+-- mando a schermo idutente, idprodotto, quantita' e nome prodotto--
+
+select carrello.idUtente, dettagliocarrello.Quantita, prodotto.Nome from carrello
+join dettagliocarrello
+on carrello.IdCarrello = dettagliocarrello.IdCarrello
+join prodotto
+on dettagliocarrello.IdProdotto = prodotto.IdProdotto;
+
+query4
+
+-- mando a schermo idutente, idprodotto, quantita' e nome prodotto dove idUtente e' 2--
+
+select dettagliocarrello.Quantita, carrello.idUtente, prodotto.Nome   from carrello
+join dettagliocarrello
+on carrello.IdCarrello = dettagliocarrello.IdCarrello
+join prodotto
+on dettagliocarrello.IdProdotto = prodotto.IdProdotto
+where idUtente = 2;
+
+query5
+
+-- mando a schermo idprodotto in prodotto uguale al idprodotto che abbia stesso nelle idcarrello --
+
+select prodotto.Marca, dettagliocarrello.Quantita, carrello.DataCreazione 
+from prodotto
+join dettagliocarrello
+on prodotto.IdProdotto = dettagliocarrello.IdProdotto 
+join carrello 
+on dettagliocarrello.IdCarrello = carrello.IdCarrello;
+
+query6
+
+-- mando a schermo idprodotto in comune idcarrello comune che abbia come Marca 'Nivea' --
+
+select prodotto.Marca, dettagliocarrello.Quantita, carrello.DataCreazione 
+from prodotto
+join dettagliocarrello
+on prodotto.IdProdotto = dettagliocarrello.IdProdotto 
+join carrello 
+on dettagliocarrello.IdCarrello = carrello.IdCarrello
+where prodotto.Marca = 'Nivea';
+
+
+query7
+
+-- mando a schermo  idprodotto in comune idcarrello comune che contengano la lettera 'A' alla fine della parola --
+
+select prodotto.Marca, dettagliocarrello.Quantita, carrello.DataCreazione 
+from prodotto
+join dettagliocarrello
+on prodotto.IdProdotto = dettagliocarrello.IdProdotto 
+join carrello 
+on dettagliocarrello.IdCarrello = carrello.IdCarrello
+where prodotto.Marca like '%a';
+
+query8
+
+-- mando a schermo nome prodotto id utente marca prodotto e la data creazione --
+
+select prodotto.Nome, utente.Nome as Compratore, prodotto.Marca, carrello.DataCreazione
+from prodotto
+join dettagliocarrello 
+on prodotto.idProdotto = dettagliocarrello.idProdotto 
+join carrello
+on dettagliocarrello.idCarrello = carrello.idCarrello
+join utente
+on carrello.idUtente = utente.idUtente
+
+query9
+
+-- mando a schermo dopo aver inserito i dati le date di acquisto prodotto nella table intervallo_temporale e uso funzione DATE per convertire la stringa di testo in una data --
+
+INSERT INTO intervallo_temporale (id, data, anno, trimestre, mese, settimana, giorno)
+VALUES (2, '2023-01-01', 2023, 1, 1, 1, 1);
+
+INSERT INTO intervallo_temporale (id, data, anno, trimestre, mese, settimana, giorno)
+VALUES (3, '2023-04-15', 2023, 2, 4, 15, 15);
+
+INSERT INTO intervallo_temporale (id, data, anno, trimestre, mese, settimana, giorno)
+VALUES (4, '2023-07-01', 2023, 3, 7, 26, 1);
+
+SELECT id, DATE_FORMAT(data, '%d/%m/%Y') AS data_formattata, anno, trimestre, mese, settimana, giorno
+FROM intervallo_temporale;
+
+
+query10
+
+-- mando a schermo il riordinamento dei dati di acquisto usando formula 'order by' dal piu recente al piu lontano --
+
+SELECT id, data, anno, trimestre, mese, settimana, giorno
+FROM intervallo_temporale
+ORDER BY data DESC;
+
+
