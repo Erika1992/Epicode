@@ -1,0 +1,38 @@
+Realizzare uno schema concettuale per un database relazionale di un e-commerce di prodotti cosmetici con almeno 5 relazioni:
+
+Entità "Utente":
+IdUtente (PK)
+Nome
+Cognome
+Email
+Password
+
+Entità "Prodotto":
+IdProdotto (PK)
+Nome
+Descrizione
+Marca
+Prezzo
+
+Entità "Categoria":
+IdCategoria (PK)
+Nome
+
+Entità "Carrello":
+IdCarrello (PK)
+IdUtente (FK verso Utente)
+DataCreazione
+
+Entità "DettaglioCarrello":
+IdDettaglioCarrello (PK)
+IdCarrello (FK verso Carrello)
+IdProdotto (FK verso Prodotto)
+Quantità
+
+Le relazioni tra le entità sono le seguenti:
+
+1.L'entità "Utente" ha una relazione uno-a-molti con l'entità "Carrello", in quanto ogni utente può avere più carrelli associati.
+2.L'entità "Prodotto" ha una relazione molti-a-molti con l'entità "Categoria", in quanto ogni prodotto può appartenere a più categorie e ogni categoria può contenere più prodotti.
+3.L'entità "Carrello" ha una relazione uno-a-molti con l'entità "DettaglioCarrello", in quanto ogni carrello può contenere più dettagli.
+4.L'entità "Prodotto" ha una relazione uno-a-molti con l'entità "DettaglioCarrello", in quanto ogni prodotto può essere presente in più dettagli del carrello.
+5.L'entità "Carrello" ha una relazione uno-a-uno con l'entità "Utente", in quanto ogni carrello è associato a un solo utente.
